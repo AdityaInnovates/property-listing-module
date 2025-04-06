@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Property Listing API",
+        "description": "API documentation for the Property Listing Module",
+        "contact": {
+            "name": "API Support",
+            "email": "admin@example.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "Local Environment"
+        }
+    ],
+    "paths": {
+        "/api/properties": {
+            "get": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "Get all properties",
+                "operationId": "e83a7fc5b1d98569892c10b7b0223879",
+                "responses": {
+                    "200": {
+                        "description": "List of properties"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "Add a new property",
+                "operationId": "b4fa7ebb5a7c26beb29f7ff369e835af",
+                "requestBody": {
+                    "description": "Property information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "agent_id",
+                                    "title",
+                                    "price",
+                                    "address"
+                                ],
+                                "properties": {
+                                    "agent_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Luxury Villa"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "example": 1000000
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "123 Street, City, State"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "example": "A beautiful villa with all amenities"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Property created successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/properties/{id}": {
+            "get": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "Get a single property",
+                "operationId": "4fa33a5e78971fac91a7575a2adad891",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Property ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Property details"
+                    },
+                    "404": {
+                        "description": "Property not found"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Properties",
+            "description": "Properties"
+        }
+    ]
+}
