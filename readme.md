@@ -6,7 +6,6 @@ A modern property listing application built with Laravel 12, React 19, TypeScrip
 
 - 🏠 Property listing management
 - 🎨 Modern UI with Tailwind CSS and Radix UI components
-- 🔒 Authentication and authorization
 - 📱 Responsive design
 - 🚀 Server-side rendering (SSR) support
 - 🔍 API documentation with Swagger/OpenAPI
